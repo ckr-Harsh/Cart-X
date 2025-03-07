@@ -1,6 +1,6 @@
 # Cart-X
 
-[Demo](https://ckr-harsh.github.io/Login-Form/)
+[Demo](https://ckr-harsh.github.io/Cart-X/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
