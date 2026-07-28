@@ -23,10 +23,9 @@ export class FireService {
       if (res) {
         this.User = res;
         localStorage.setItem('user', JSON.stringify(this.User));
-        JSON.parse(localStorage.getItem('user'));
       } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
+        this.User = null;
+        localStorage.removeItem('user');
       }
     });
   }

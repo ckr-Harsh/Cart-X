@@ -32,16 +32,18 @@ export class SignInComponent implements OnInit {
 
   SignIn(email, password) {
     this.authService.SignIn(email, password);
-    email = '';
-    password = '';
   }
 
   signWithGoogle() {
     this.authService.GoogleAuth();
   }
 
-  goToHome() {
+  goToSignUp() {
     this.router.navigate(['auth/signup']);
+  }
+
+  goToHome() {
+    this.goToSignUp();
   }
 
   ngOnInit() {

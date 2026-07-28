@@ -1,29 +1,94 @@
-# Cart-X
+# Login-Form (Cart-X)
 
-[Demo](https://ckr-harsh.github.io/Cart-X/)
+> An Angular-based E-commerce Authentication & Shopping Cart Web Application powered by Firebase.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+---
 
-## Development server
+## 🚀 Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **Authentication & User Management**:
+  - Email & Password Sign Up and Sign In via Firebase Auth.
+  - Google OAuth single sign-on (SSO).
+  - Route guards (`AuthGuard`) protecting dashboard and product catalog access.
+- **E-Commerce & Storefront**:
+  - Product catalog browsing with filtering and sorting pipes.
+  - Interactive shopping cart management service.
+  - Dynamic billing form and order management models.
+- **Cloud Database Integration**:
+  - Firestore data sync for user profiles and product store records.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🛠️ Tech Stack & Architecture
 
-## Build
+- **Frontend**: [Angular v11](https://angular.io/) (TypeScript, RxJS)
+- **UI Framework**: [Bootstrap 4](https://getbootstrap.com/)
+- **Backend & Auth**: [Firebase / AngularFire](https://github.com/angular/angularfire)
+- **Testing**: Karma & Jasmine
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+---
 
-## Running unit tests
+## 🔧 Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+- Node.js (v14+ recommended for Angular 11 compatibility)
+- npm (v6+)
+- Angular CLI installed globally (`npm i -g @angular/cli@11`)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Installation
 
-## Further help
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/ckr-Harsh/Login-Form.git
+   cd Login-Form
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Configure Firebase**:
+   Update `src/environments/environment.ts` with your Firebase project credentials:
+   ```typescript
+   export const environment = {
+     production: false,
+     firebaseConfig: {
+       apiKey: "YOUR_FIREBASE_API_KEY",
+       authDomain: "YOUR_PROJECT.firebaseapp.com",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_PROJECT.appspot.com",
+       messagingSenderId: "YOUR_SENDER_ID",
+       appId: "YOUR_APP_ID"
+     }
+   };
+   ```
+
+4. **Run the Development Server**:
+   ```bash
+   ng serve
+   ```
+   Navigate to `http://localhost:4200/`. The app will automatically reload if you change any source files.
+
+---
+
+## 🔍 Recent Updates & Fixes
+
+- **AuthGuard Fix**: Resolved authorization bypass where `this.service.GoogleAuth` function reference was evaluated as truthy, preventing unauthenticated access to `/dashboard`.
+- **Centralized Configuration**: Moved Firebase configuration into `environment.ts` & `environment.prod.ts` and refactored `AppModule` to eliminate duplicate configuration code.
+- **LocalStorage & Session Cleanup**: Fixed memory leaks and `"null"` string artifacts in local storage during sign-out.
+- **Template & Form Validation**: Corrected invalid form evaluation in `SignInComponent` template (`form.invalid && form.touched`) and updated route navigation methods.
+
+---
+
+## 📜 Build & Test Commands
+
+- **Production Build**:
+  ```bash
+  ng build --prod
+  ```
+- **Run Unit Tests**:
+  ```bash
+  ng test
+  ```

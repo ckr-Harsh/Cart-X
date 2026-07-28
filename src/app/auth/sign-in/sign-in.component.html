@@ -2,8 +2,8 @@
   <h2>Login Into Cart-X</h2>
 
   <form [formGroup]="form">
-    <div class="alert alert-danger" *ngIf="form.controls.invalid">
-      Invalid Email or PassWord
+    <div class="alert alert-danger" *ngIf="form.invalid && form.touched">
+      Invalid Email or Password
     </div>
     <label> Email or UserName </label>
     <input
@@ -50,6 +50,6 @@
       Sign In With Google
     </button>
 
-    <p (click)="goToHome()">Create New Account</p>
+    <p (click)="goToSignUp()" style="cursor: pointer;">Create New Account</p>
   </form>
 </div>

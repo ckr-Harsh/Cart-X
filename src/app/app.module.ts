@@ -19,17 +19,7 @@ import { ProductsModel } from 'src/assets/Store/products';
 import { CompanyDetailsModel } from 'src/assets/Store/details';
 import { StorageService } from './service/storage.service';
 import { CartService } from './service/cart.service';
-import { dirConfig } from './directive.config';
-
-let config = {
-  apiKey: 'AIzaSyD-JzqyndYkqvog30wtkDXsVGau3Y8KdlI',
-  authDomain: 'authenticate-2e379.firebaseapp.com',
-  projectId: 'authenticate-2e379',
-  storageBucket: 'authenticate-2e379.appspot.com',
-  messagingSenderId: '102439631208',
-  appId: '1:102439631208:web:1a7723b813cf56b529bedd',
-  measurementId: 'G-LPVB6CRZH6',
-};
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +29,7 @@ let config = {
     FormsModule,
     HttpClientModule,
     AuthModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
